@@ -15,12 +15,12 @@ std::string TicTacToe::m_board[row][col] = {
 
 point::point(char name) : m_name(name),pos1{},pos2{} {};
 
-int point::checkInputPosition(const char* ch) {
-    int a = 0;
+int point::checkInputPosition(const char* RowOrCol) {
+    int InputValue = 0;
     while (1) {
-        std::cout << ch;
-        std::cin >> a;
-        if(std::cin.fail() || (a <= 0 || a >= 4)) {
+        std::cout << RowOrCol;
+        std::cin >> InputValue;
+        if(std::cin.fail() || (InputValue <= 0 || InputValue >= 4)) {
             std::cin.clear();
             std::cin.ignore(32767,'\n');
             continue;
@@ -29,7 +29,7 @@ int point::checkInputPosition(const char* ch) {
         if(std::cin.gcount() > 1) {
             continue;
         }
-        return a;
+        return InputValue;
     }
 }
 
